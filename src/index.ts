@@ -1,4 +1,5 @@
 import { GraphQLServer } from 'graphql-yoga'
+import { IResolvers } from "graphql-yoga/dist/src/types";
 
 const typeDefs = `
   type Query {
@@ -6,9 +7,9 @@ const typeDefs = `
   }
 `
 
-const resolvers = {
+const resolvers: IResolvers =  {
   Query: {
-    beerMe: (_:any, { name }:any) => `Beer ${name || 'Served'}`,
+    beerMe: (_, { name }) => `Beer ${name || 'Served'}`,
   },
 }
 
